@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:nuttu_project/features/auth/presentation/pages/login_page.dart'; // Importa la nueva página
 //importamos los colores y gradientes
 // import 'package:nuttu_project/app/theme/app_colors.dart';
 import 'package:nuttu_project/app/theme/app_gradiants.dart';
 //importamos la pagina a la que vamos a navegar
-import 'package:nuttu_project/features/home/presentation/pages/home_page.dart';
+//import 'package:nuttu_project/features/home/presentation/pages/home_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -27,7 +28,7 @@ class _SplashPageState extends State<SplashPage> {
       // Navega a la página principal, reemplazando el splash screen
       // para que el usuario no pueda volver a él.
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const HomePage()),
+        MaterialPageRoute(builder: (context) => const LoginPage()),
       );
     });
   }

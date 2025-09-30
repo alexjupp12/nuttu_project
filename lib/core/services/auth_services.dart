@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'dart:developer';
 
 class AuthService {
   // URL base del servidor muy importante para realizar la conexión
@@ -20,7 +21,7 @@ class AuthService {
       // 201 es "ok creado"
       return response.statusCode == 201;
     } catch (e) {
-      print(e);
+      log('Error en el servicio de autenticación: $e'); // Para depuración
       return false;
     }
   }
@@ -38,7 +39,7 @@ class AuthService {
       // 200 es "ok"
       return response.statusCode == 200;
     } catch (e) {
-      print(e);
+      log('Error en el servicio de autenticación: $e'); // Para depuración
       return false;
     }
   }

@@ -13,6 +13,8 @@ class AppColors {
   static const Color color3 = Color(0xFFFEDEEB);
   static const Color color4 = Color(0xFF84BBD0);
   static const Color color5 = Color(0xFF5578D8);
+  static const Color colorDark = Color.fromARGB(255, 10, 22, 54);
+  static const Color facebookBlue = Color.fromARGB(255, 6, 34, 110);
 
   // COLORES NEUTROS
   static const Color white = Color(0xFFFFFFFF);
