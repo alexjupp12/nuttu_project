@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
     ),
     Tutor(
       nombre: 'Walther Zapata',
-      materia: 'Química',
+      materia: 'Matemáticas',
       edad: 24,
       id: '0-123456789',
       avatarUrl: 'assets/images/Walther.png',
