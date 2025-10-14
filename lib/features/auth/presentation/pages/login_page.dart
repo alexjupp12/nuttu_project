@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:nuttu_project/core/services/auth_services.dart';
-import 'package:nuttu_project/features/home/presentation/pages/home_page.dart';
 // Importamos nuestros temas de colores y degradados
 import 'package:nuttu_project/app/theme/app_colors.dart';
 import 'package:nuttu_project/app/theme/app_gradiants.dart';
+import 'package:nuttu_project/features/home/presentation/pages/main_page.dart'; // <-- Importa MainPage
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
       if (success) {
         // Si el login es exitoso, navegamos a la HomePage
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) => const MainPage()),
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
