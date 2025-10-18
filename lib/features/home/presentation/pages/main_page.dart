@@ -3,6 +3,7 @@ import 'package:nuttu_project/app/theme/app_colors.dart';
 import 'package:nuttu_project/features/home/presentation/pages/cursos_page.dart';
 import 'package:nuttu_project/features/home/presentation/pages/home_page.dart'; // Tu HomePage original
 import 'package:nuttu_project/features/home/presentation/pages/perfil_page.dart';
+import 'package:nuttu_project/features/chat/presentation/pages/chat_list_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -38,7 +39,12 @@ class _MainPageState extends State<MainPage> {
         actions: [
           IconButton(
             icon: Image.asset('assets/images/Chats.png', width: 35),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ChatListPage()),
+              );
+            },
           ),
           const SizedBox(width: 15),
         ],
@@ -59,7 +65,7 @@ class _MainPageState extends State<MainPage> {
           ),
           BottomNavigationBarItem(
             // Ícono para el estado normal/no seleccionado
-            icon: Image.asset('assets/images/Casa.png', width: 24),
+            icon: Image.asset('assets/images/Home.png', width: 24),
             // Ícono para el estado activo/seleccionado
             activeIcon: Image.asset('assets/images/CasaColor.png', width: 32),
             label: 'Inicio',
