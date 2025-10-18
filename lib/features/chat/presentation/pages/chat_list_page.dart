@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nuttu_project/app/theme/app_colors.dart';
 import 'package:nuttu_project/features/chat/domain/models/chat_item_model.dart';
+import 'package:nuttu_project/features/chat/presentation/pages/chat_detail_page.dart';
 
 class ChatListPage extends StatefulWidget {
   const ChatListPage({super.key});
@@ -106,6 +107,15 @@ class _ChatListPageState extends State<ChatListPage> {
         ),
         onTap: () {
           // Lógica para abrir el chat específico
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ChatDetailPage(
+                contactName: item.title,
+                avatarUrl: item.avatarUrl,
+              ),
+            ),
+          );
         },
       ),
     );
