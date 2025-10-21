@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 // import 'package:nuttu_project/app/theme/app_colors.dart';
 import 'package:nuttu_project/features/home/domain/models/tutor_model.dart';
+// ¡CAMBIO AQUÍ! Importamos la página de perfil
+import 'package:nuttu_project/features/home/presentation/pages/tutor_profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -23,8 +25,8 @@ class _HomePageState extends State<HomePage> {
 
   final List<Tutor> _tutores = [
     Tutor(
-      nombre: 'Carlos Gutierrez',
-      materia: 'Inglés',
+      nombre: 'JuanDa Higuita',
+      materia: 'Inglés, Español', // Modificado para incluir Español
       edad: 22,
       id: '0-132131241',
       avatarUrl: 'assets/images/Carlos.png',
@@ -38,7 +40,7 @@ class _HomePageState extends State<HomePage> {
     ),
     Tutor(
       nombre: 'Walther Zapata',
-      materia: 'Matemáticas',
+      materia: 'Mátematicas, Programación',
       edad: 24,
       id: '0-123456789',
       avatarUrl: 'assets/images/Walther.png',
@@ -144,7 +146,7 @@ class _HomePageState extends State<HomePage> {
             itemCount: _tutores.length,
             itemBuilder: (context, index) {
               final tutor = _tutores[index];
-              return _buildTutorCard(tutor);
+              return _buildTutorCard(context, tutor); // Pasamos 'context'
             },
           ),
         ),
@@ -152,41 +154,52 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildTutorCard(Tutor tutor) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 12.0),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      elevation: 2,
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Row(
-          children: [
-            CircleAvatar(
-              radius: 35,
-              backgroundImage: AssetImage(tutor.avatarUrl),
-            ),
-            const SizedBox(width: 15),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    tutor.nombre,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text('Tutor: ${tutor.materia}'),
-                  Text('Edad: ${tutor.edad} años'),
-                  Text(
-                    'ID: ${tutor.id}',
-                    style: TextStyle(color: Colors.grey[600], fontSize: 12),
-                  ),
-                ],
+  // ¡CAMBIO AQUÍ! Añadimos el InkWell y el context
+  Widget _buildTutorCard(BuildContext context, Tutor tutor) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => TutorProfilePage(tutor: tutor),
+          ),
+        );
+      },
+      child: Card(
+        margin: const EdgeInsets.only(bottom: 12.0),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+        elevation: 2,
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Row(
+            children: [
+              CircleAvatar(
+                radius: 35,
+                backgroundImage: AssetImage(tutor.avatarUrl),
               ),
-            ),
-          ],
+              const SizedBox(width: 15),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      tutor.nombre,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Text('Tutor: ${tutor.materia}'),
+                    Text('Edad: ${tutor.edad} años'),
+                    Text(
+                      'ID: ${tutor.id}',
+                      style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
