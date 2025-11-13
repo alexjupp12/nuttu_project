@@ -43,3 +43,12 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Secrets and credentials
+#
+# Keep sensitive data like API keys, database credentials, etc. out of version control.
+# Store them in a file that is not checked in, and use environment variables
+# or a configuration file that is loaded at runtime.
+.env
+secrets.json
+credentials.json
